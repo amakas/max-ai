@@ -1,5 +1,6 @@
+export const runtime = "nodejs";
+
 import { OpenRouter } from "@openrouter/sdk";
-import { NextResponse } from "next/server";
 
 const openrouter = new OpenRouter({
   apiKey: process.env.OPENROUTER_KEY!,
