@@ -19,7 +19,7 @@
 }
 .messages-container {
   height: 650px;
-  width: 80%;
+  width: 95%;
   max-width: 700px;
 
   border-radius: 20px;
@@ -68,7 +68,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 40%;
+  width: 50%;
   max-width: 600px;
 }
 
@@ -78,10 +78,11 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  width: 6%;
+  width: 8%;
+  min-width: 30px;
   height: 40px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   cursor: pointer;
@@ -94,5 +95,5 @@ h2 {
   border-radius: 20px;
   padding: 10px;
   background-color: rgb(118, 201, 211);
-  width: 90%;
+  width: 85%;
 }
