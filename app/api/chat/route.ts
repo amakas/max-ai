@@ -9,7 +9,7 @@ const openrouter = new OpenRouter({
 export async function POST(req: Request) {
   const { messages: userMessages, prompt } = await req.json();
 
-  const systemPrompt = prompt;
+  const systemPrompt = `${prompt} and you are a boy`;
   const messages = [{ role: "system", content: systemPrompt }, ...userMessages];
   const stream = await openrouter.chat.send({
     model: "mistralai/devstral-2512:free",
