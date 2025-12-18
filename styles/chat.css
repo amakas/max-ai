@@ -68,7 +68,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 50%;
+  width: 80%;
   max-width: 600px;
 }
 
@@ -96,4 +96,40 @@ h2 {
   padding: 10px;
   background-color: rgb(118, 201, 211);
   width: 85%;
+  overflow: auto;
+}
+
+.temper {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  & p {
+    font-size: medium;
+  }
+}
+select {
+  margin: 10px;
+  background-color: yellowgreen;
+  font-size: medium;
+}
+
+@media (max-width: 1150px) {
+  .heart1,
+  .heart2 {
+    display: none;
+  }
+}
+.heart1 {
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  color: red;
+}
+.heart2 {
+  position: fixed;
+  top: 50%;
+  right: 10%;
+  color: red;
 }

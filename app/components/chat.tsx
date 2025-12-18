@@ -11,6 +11,9 @@ export const Chat = () => {
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const lastRef = useRef<null | HTMLDivElement>(null);
+  const [prompt, setPrompt] = useState(
+    "Be really friendly and lovely and add a bit of humor 😊"
+  );
   const handleClick = async () => {
     if (!text) return;
     setLoading(true);
@@ -27,7 +30,7 @@ export const Chat = () => {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...messages, message] }),
+        body: JSON.stringify({ messages: [...messages, message], prompt }),
       });
       if (!res.ok) throw new Error("Request failed");
       const aiMessage: Message = { role: "assistant", content: "" };
@@ -72,7 +75,7 @@ export const Chat = () => {
   return (
     <div className="chat">
       <div className="messages-container">
-        {messages.length === 0 && <h2>How can i help you today?</h2>}
+        {messages.length === 0 && <h2>Сонечка привет{")"}</h2>}
         {messages?.map((message, i) => {
           return (
             <div key={i} className="message-container">
@@ -113,6 +116,35 @@ export const Chat = () => {
           ➤
         </button>
       </form>
+      <div className="temper">
+        <p>Выберай:</p>
+        <select
+          className="selector"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        >
+          <option
+            value={"Be really friendly and lovely and add a bit of humor 😊"}
+          >
+            Дружелюбный
+          </option>
+          <option value={"Be sarcastic, grumpy, pretty rude"}>Злой</option>
+          <option
+            value={
+              "Be playful and really lustful, you are love using dirty and filthy words to turn on this person"
+            }
+          >
+            Игривый
+          </option>
+          <option
+            value={
+              "Be very caring, supportive, gentle and emotionally warm, you simply love person you spoke with and you say it to them ❤️"
+            }
+          >
+            Любящий
+          </option>
+        </select>
+      </div>
     </div>
   );
 };
